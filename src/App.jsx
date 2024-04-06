@@ -10,7 +10,7 @@ function App() {
       <h1>Make a Salad</h1>
       <div className="card">
         <button onClick={() => setSalad(makeASalad())}>Make a Salad!</button>
-        <p>Your salad ingredients are:</p>
+        {salad.length > 0 && <p>Your salad ingredients are:</p>}
         <ul>
           {salad.map((ingredient, index) => (
             <li
