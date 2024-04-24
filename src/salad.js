@@ -2,7 +2,7 @@ let ingredients = [
   {
     name: "romaine lettuce",
     type: "base",
-    tags: ["vegetable", "lettuce"],
+    tags: ["base", "vegetable", "lettuce"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -10,7 +10,7 @@ let ingredients = [
   {
     name: "baby spinach",
     type: "base",
-    tags: ["vegetable", "spinach"],
+    tags: ["base", "vegetable", "spinach"],
     weight: 0.5,
     likesTags: [],
     dislikesTags: [],
@@ -18,7 +18,7 @@ let ingredients = [
   {
     name: "kale",
     type: "base",
-    tags: ["vegetable", "kale"],
+    tags: ["base", "vegetable", "kale"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -26,7 +26,7 @@ let ingredients = [
   {
     name: "arugula",
     type: "base",
-    tags: ["vegetable", "arugula"],
+    tags: ["base", "vegetable", "arugula"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -34,7 +34,7 @@ let ingredients = [
   {
     name: "mixed greens",
     type: "base",
-    tags: ["vegetable", "mixed greens"],
+    tags: ["base", "vegetable", "mixed greens"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -42,7 +42,7 @@ let ingredients = [
   {
     name: "spring mix",
     type: "base",
-    tags: ["vegetable", "spring mix"],
+    tags: ["base", "vegetable", "spring mix"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -50,7 +50,7 @@ let ingredients = [
   {
     name: "iceberg lettuce",
     type: "base",
-    tags: ["vegetable", "lettuce"],
+    tags: ["base", "vegetable", "lettuce"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -58,7 +58,7 @@ let ingredients = [
   {
     name: "red leaf lettuce",
     type: "base",
-    tags: ["vegetable", "lettuce"],
+    tags: ["base", "vegetable", "lettuce"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -66,7 +66,7 @@ let ingredients = [
   {
     name: "butter lettuce",
     type: "base",
-    tags: ["vegetable", "lettuce"],
+    tags: ["base", "vegetable", "lettuce"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -74,7 +74,7 @@ let ingredients = [
   {
     name: "tomato",
     type: "topping",
-    tags: ["vegetable", "tomato", "cold"],
+    tags: ["topping", "vegetable", "tomato", "cold"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -82,7 +82,7 @@ let ingredients = [
   {
     name: "cucumber",
     type: "topping",
-    tags: ["vegetable", "cucumber", "cold"],
+    tags: ["topping", "vegetable", "cucumber", "cold"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -90,7 +90,7 @@ let ingredients = [
   {
     name: "carrot",
     type: "topping",
-    tags: ["vegetable", "carrot", "cold"],
+    tags: ["topping", "vegetable", "carrot", "cold"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -98,7 +98,7 @@ let ingredients = [
   {
     name: "red onion",
     type: "topping",
-    tags: ["vegetable", "onion", "cold"],
+    tags: ["topping", "vegetable", "onion", "cold"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -106,7 +106,7 @@ let ingredients = [
   {
     name: "green onion",
     type: "topping",
-    tags: ["vegetable", "onion", "cold"],
+    tags: ["topping", "vegetable", "onion", "cold"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -114,7 +114,7 @@ let ingredients = [
   {
     name: "bell pepper",
     type: "topping",
-    tags: ["vegetable", "bell pepper", "cold"],
+    tags: ["topping", "vegetable", "bell pepper", "cold"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -122,7 +122,7 @@ let ingredients = [
   {
     name: "broccoli",
     type: "topping",
-    tags: ["vegetable", "broccoli", "cold"],
+    tags: ["topping", "vegetable", "broccoli", "cold"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -130,7 +130,7 @@ let ingredients = [
   {
     name: "cauliflower",
     type: "topping",
-    tags: ["vegetable", "cauliflower", "cold"],
+    tags: ["topping", "vegetable", "cauliflower", "cold"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -138,7 +138,7 @@ let ingredients = [
   {
     name: "radish",
     type: "topping",
-    tags: ["vegetable", "radish", "cold"],
+    tags: ["topping", "vegetable", "radish", "cold"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -146,7 +146,7 @@ let ingredients = [
   {
     name: "celery",
     type: "topping",
-    tags: ["vegetable", "celery", "cold"],
+    tags: ["topping", "vegetable", "celery", "cold"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -154,7 +154,7 @@ let ingredients = [
   {
     name: "avocado",
     type: "topping",
-    tags: ["vegetable", "avocado", "cold"],
+    tags: ["topping", "vegetable", "avocado", "cold"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -162,7 +162,7 @@ let ingredients = [
   {
     name: "mushroom",
     type: "topping",
-    tags: ["vegetable", "mushroom", "fungi", "cold"],
+    tags: ["topping", "vegetable", "mushroom", "fungi", "cold"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -170,7 +170,7 @@ let ingredients = [
   {
     name: "crispy fried onion",
     type: "topping",
-    tags: ["vegetable", "onion", "fried", "crunchy", "pre packaged"],
+    tags: ["topping", "vegetable", "onion", "fried", "crunchy", "pre packaged"],
     weight: 10,
     likesTags: [],
     dislikesTags: [{ tag: "crunchy", weight: 10 }],
@@ -178,7 +178,7 @@ let ingredients = [
   {
     name: "sun dried tomato",
     type: "topping",
-    tags: ["vegetable", "tomato", "dried", "pre packaged"],
+    tags: ["topping", "vegetable", "tomato", "dried", "pre packaged"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -186,7 +186,7 @@ let ingredients = [
   {
     name: "sauteed mushroom",
     type: "topping",
-    tags: ["vegetable", "mushroom", "fungi", "hot"],
+    tags: ["topping", "vegetable", "mushroom", "fungi", "hot"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -194,7 +194,7 @@ let ingredients = [
   {
     name: "sauteed onion",
     type: "topping",
-    tags: ["vegetable", "onion", "hot"],
+    tags: ["topping", "vegetable", "onion", "hot"],
     weight: 1,
     likesTags: [{ tag: "hot", weight: 5 }],
     dislikesTags: [],
@@ -202,7 +202,7 @@ let ingredients = [
   {
     name: "grilled bell pepper",
     type: "topping",
-    tags: ["vegetable", "bell pepper", "hot"],
+    tags: ["topping", "vegetable", "bell pepper", "hot"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -210,7 +210,7 @@ let ingredients = [
   {
     name: "grilled zucchini",
     type: "topping",
-    tags: ["vegetable", "zucchini", "hot"],
+    tags: ["topping", "vegetable", "zucchini", "hot"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -218,7 +218,7 @@ let ingredients = [
   {
     name: "grilled eggplant",
     type: "topping",
-    tags: ["vegetable", "eggplant", "hot"],
+    tags: ["topping", "vegetable", "eggplant", "hot"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -226,7 +226,7 @@ let ingredients = [
   {
     name: "grilled asparagus",
     type: "topping",
-    tags: ["vegetable", "asparagus", "hot"],
+    tags: ["topping", "vegetable", "asparagus", "hot"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -234,7 +234,7 @@ let ingredients = [
   {
     name: "grilled corn",
     type: "topping",
-    tags: ["vegetable", "corn", "hot"],
+    tags: ["topping", "vegetable", "corn", "hot"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -242,7 +242,7 @@ let ingredients = [
   {
     name: "grilled squash",
     type: "topping",
-    tags: ["vegetable", "squash", "hot"],
+    tags: ["topping", "vegetable", "squash", "hot"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -250,7 +250,7 @@ let ingredients = [
   {
     name: "grilled onion",
     type: "topping",
-    tags: ["vegetable", "onion", "hot"],
+    tags: ["topping", "vegetable", "onion", "hot"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -258,7 +258,7 @@ let ingredients = [
   {
     name: "grilled tomato",
     type: "topping",
-    tags: ["vegetable", "tomato", "hot"],
+    tags: ["topping", "vegetable", "tomato", "hot"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -266,7 +266,7 @@ let ingredients = [
   {
     name: "grilled mushroom",
     type: "topping",
-    tags: ["vegetable", "mushroom", "fungi", "hot"],
+    tags: ["topping", "vegetable", "mushroom", "fungi", "hot"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -274,7 +274,7 @@ let ingredients = [
   {
     name: "grilled pineapple",
     type: "topping",
-    tags: ["fruit", "pineapple", "hot"],
+    tags: ["topping", "fruit", "pineapple", "hot"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -282,7 +282,7 @@ let ingredients = [
   {
     name: "grilled apple",
     type: "topping",
-    tags: ["fruit", "apple", "hot"],
+    tags: ["topping", "fruit", "apple", "hot"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -290,7 +290,7 @@ let ingredients = [
   {
     name: "grilled pear",
     type: "topping",
-    tags: ["fruit", "pear", "hot"],
+    tags: ["topping", "fruit", "pear", "hot"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -298,7 +298,7 @@ let ingredients = [
   {
     name: "grilled peach",
     type: "topping",
-    tags: ["fruit", "peach", "hot"],
+    tags: ["topping", "fruit", "peach", "hot"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -306,7 +306,7 @@ let ingredients = [
   {
     name: "grilled mango",
     type: "topping",
-    tags: ["fruit", "mango", "hot"],
+    tags: ["topping", "fruit", "mango", "hot"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -314,7 +314,7 @@ let ingredients = [
   {
     name: "grilled watermelon",
     type: "topping",
-    tags: ["fruit", "watermelon", "hot"],
+    tags: ["topping", "fruit", "watermelon", "hot"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -330,7 +330,7 @@ let ingredients = [
   {
     name: "peanut sauce",
     type: "dressing",
-    tags: ["sauce", "peanut"],
+    tags: ["dressing", "sauce", "peanut"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -338,7 +338,7 @@ let ingredients = [
   {
     name: "tahini sauce",
     type: "dressing",
-    tags: ["sauce", "tahini"],
+    tags: ["dressing", "sauce", "tahini"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -346,7 +346,7 @@ let ingredients = [
   {
     name: "hummus",
     type: "dressing",
-    tags: ["sauce", "hummus"],
+    tags: ["dressing", "sauce", "hummus"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -354,7 +354,7 @@ let ingredients = [
   {
     name: "tzatziki sauce",
     type: "dressing",
-    tags: ["sauce", "tzatziki"],
+    tags: ["dressing", "sauce", "tzatziki"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -418,7 +418,7 @@ let ingredients = [
   {
     name: "feta cheese",
     type: "topping",
-    tags: ["cheese", "feta", "cold"],
+    tags: ["topping", "cheese", "feta", "cold"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -426,7 +426,7 @@ let ingredients = [
   {
     name: "cheddar cheese",
     type: "topping",
-    tags: ["cheese", "cheddar", "cold"],
+    tags: ["topping", "cheese", "cheddar", "cold"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -434,7 +434,7 @@ let ingredients = [
   {
     name: "mozzarella cheese",
     type: "topping",
-    tags: ["cheese", "mozzarella", "cold"],
+    tags: ["topping", "cheese", "mozzarella", "cold"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -442,7 +442,7 @@ let ingredients = [
   {
     name: "parmesan cheese",
     type: "topping",
-    tags: ["cheese", "parmesan", "cold"],
+    tags: ["topping", "cheese", "parmesan", "cold"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -450,7 +450,7 @@ let ingredients = [
   {
     name: "goat cheese",
     type: "topping",
-    tags: ["cheese", "goat", "cold"],
+    tags: ["topping", "cheese", "goat", "cold"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -458,7 +458,7 @@ let ingredients = [
   {
     name: "blue cheese",
     type: "topping",
-    tags: ["cheese", "blue", "cold"],
+    tags: ["topping", "cheese", "blue cheese", "cold"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -466,7 +466,7 @@ let ingredients = [
   {
     name: "walnut",
     type: "topping",
-    tags: ["nut", "walnut", "cold"],
+    tags: ["topping", "nut", "walnut", "cold"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -474,7 +474,7 @@ let ingredients = [
   {
     name: "almond",
     type: "topping",
-    tags: ["nut", "almond", "cold"],
+    tags: ["topping", "nut", "almond", "cold"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -482,7 +482,7 @@ let ingredients = [
   {
     name: "cashew",
     type: "topping",
-    tags: ["nut", "cashew", "cold"],
+    tags: ["topping", "nut", "cashew", "cold"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -490,7 +490,7 @@ let ingredients = [
   {
     name: "pecan",
     type: "topping",
-    tags: ["nut", "pecan", "cold"],
+    tags: ["topping", "nut", "pecan", "cold"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -498,7 +498,7 @@ let ingredients = [
   {
     name: "peanut",
     type: "topping",
-    tags: ["nut", "peanut", "cold"],
+    tags: ["topping", "nut", "peanut", "cold"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -506,7 +506,7 @@ let ingredients = [
   {
     name: "pistachio",
     type: "topping",
-    tags: ["nut", "pistachio", "cold"],
+    tags: ["topping", "nut", "pistachio", "cold"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -514,7 +514,7 @@ let ingredients = [
   {
     name: "BBQ sauce",
     type: "dressing",
-    tags: ["sauce", "BBQ"],
+    tags: ["dressing", "sauce", "BBQ"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -522,7 +522,7 @@ let ingredients = [
   {
     name: "hot sauce",
     type: "dressing",
-    tags: ["sauce", "spicy"],
+    tags: ["dressing", "sauce", "spicy"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -530,7 +530,7 @@ let ingredients = [
   {
     name: "italian croutons",
     type: "topping",
-    tags: ["bread", "crunchy", "italian", "pre packaged"],
+    tags: ["topping", "bread", "crunchy", "italian", "pre packaged"],
     weight: 10,
     likesTags: [],
     dislikesTags: [{ tag: "crunchy", weight: 10 }],
@@ -538,7 +538,7 @@ let ingredients = [
   {
     name: "cheetos",
     type: "topping",
-    tags: ["crunchy", "cheese", "pre packaged"],
+    tags: ["topping", "crunchy", "cheese", "pre packaged"],
     weight: 10,
     likesTags: [],
     dislikesTags: [{ tag: "crunchy", weight: 10 }],
@@ -546,7 +546,7 @@ let ingredients = [
   {
     name: "doritos",
     type: "topping",
-    tags: ["crunchy", "cheese", "pre packaged"],
+    tags: ["topping", "crunchy", "cheese", "pre packaged"],
     weight: 10,
     likesTags: [],
     dislikesTags: [{ tag: "crunchy", weight: 10 }],
@@ -554,7 +554,7 @@ let ingredients = [
   {
     name: "tortilla strips",
     type: "topping",
-    tags: ["crunchy", "corn", "pre packaged"],
+    tags: ["topping", "crunchy", "corn", "pre packaged"],
     weight: 10,
     likesTags: [],
     dislikesTags: [{ tag: "crunchy", weight: 10 }],
@@ -562,7 +562,7 @@ let ingredients = [
   {
     name: "sauteed garlic",
     type: "topping",
-    tags: ["vegetable", "garlic", "hot"],
+    tags: ["topping", "vegetable", "garlic", "hot"],
     weight: 1,
     likesTags: [{ tag: "hot", weight: 5 }],
     dislikesTags: [],
@@ -570,7 +570,7 @@ let ingredients = [
   {
     name: "toasted pizza pieces",
     type: "topping",
-    tags: ["bread", "crunchy", "pizza", "unusual"],
+    tags: ["topping", "bread", "crunchy", "pizza", "unusual"],
     weight: 0.1,
     likesTags: [{ tag: "pizza", weight: 10 }],
     dislikesTags: [{ tag: "crunchy", weight: 10 }],
@@ -578,7 +578,7 @@ let ingredients = [
   {
     name: "crispy bacon",
     type: "topping",
-    tags: ["meat", "bacon", "crunchy"],
+    tags: ["topping", "meat", "bacon", "crunchy"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -586,7 +586,7 @@ let ingredients = [
   {
     name: "grilled chicken",
     type: "topping",
-    tags: ["meat", "chicken", "hot"],
+    tags: ["topping", "meat", "chicken", "hot"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -594,7 +594,7 @@ let ingredients = [
   {
     name: "grilled steak",
     type: "topping",
-    tags: ["meat", "steak", "hot"],
+    tags: ["topping", "meat", "steak", "hot"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -602,7 +602,7 @@ let ingredients = [
   {
     name: "grilled salmon",
     type: "topping",
-    tags: ["meat", "fish", "salmon", "hot"],
+    tags: ["topping", "meat", "fish", "salmon", "hot"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -610,7 +610,7 @@ let ingredients = [
   {
     name: "grilled shrimp",
     type: "topping",
-    tags: ["meat", "shrimp", "hot"],
+    tags: ["topping", "meat", "shrimp", "hot"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -618,7 +618,7 @@ let ingredients = [
   {
     name: "grilled pork",
     type: "topping",
-    tags: ["meat", "pork", "hot"],
+    tags: ["topping", "meat", "pork", "hot"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -626,7 +626,7 @@ let ingredients = [
   {
     name: "grilled lamb",
     type: "topping",
-    tags: ["meat", "lamb", "hot"],
+    tags: ["topping", "meat", "lamb", "hot"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -634,7 +634,7 @@ let ingredients = [
   {
     name: "grilled tofu",
     type: "topping",
-    tags: ["meat", "tofu", "hot"],
+    tags: ["topping", "meat", "tofu", "hot"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -642,7 +642,7 @@ let ingredients = [
   {
     name: "pizza seasoning",
     type: "topping",
-    tags: ["spice", "pizza", "unusual"],
+    tags: ["topping", "spice", "pizza", "unusual"],
     weight: 0.1,
     likesTags: [{ tag: "pizza", weight: 10 }],
     dislikesTags: [],
@@ -650,7 +650,7 @@ let ingredients = [
   {
     name: "taco seasoning",
     type: "topping",
-    tags: ["spice", "taco", "unusual"],
+    tags: ["topping", "spice", "taco", "unusual"],
     weight: 0.1,
     likesTags: [{ tag: "taco", weight: 10 }],
     dislikesTags: [],
@@ -658,7 +658,7 @@ let ingredients = [
   {
     name: "italian seasoning",
     type: "topping",
-    tags: ["spice", "italian", "unusual"],
+    tags: ["topping", "spice", "italian", "unusual"],
     weight: 0.1,
     likesTags: [{ tag: "italian", weight: 10 }],
     dislikesTags: [],
@@ -704,7 +704,8 @@ function makeASalad(
     base: 1,
     topping: 3,
     dressing: 1,
-    excludedTags: [],
+    excludedIngredients: [],
+    saladProfile: [],
   }
 ) {
   // If no seed is provided, generate a random seed
@@ -712,7 +713,35 @@ function makeASalad(
     seed = Math.random().toString(36).substring(2);
   }
 
-  var legalIngredients = ingredients.filter((ingredient) => ingredient.tags.every((tag) => !rules.excludedTags.includes(tag)));
+  // Filter out excluded ingredients
+  var legalIngredients = ingredients.filter((ingredient) => !rules.excludedIngredients.includes(ingredient.name));
+
+  // Modify ingredient weights based on the salad profile
+  if (rules.saladProfile.length > 0) {
+    legalIngredients.forEach((ingredient) => {
+      if (rules.saladProfile.some((profile) => profile.ingredient === ingredient.name)) {
+        let profile = rules.saladProfile.find((profile) => profile.ingredient === ingredient.name);
+        ingredient.weight += profile.weightAdjustment;
+
+        profile.likesTags.forEach((like) => {
+          if (ingredient.likesTags.some((tag) => tag.tag === like.tag)) {
+            ingredient.likesTags.find((tag) => tag.tag === like.tag).weight += like.weight;
+          } else {
+            ingredient.likesTags.push(like);
+          }
+        });
+
+        profile.dislikesTags.forEach((dislike) => {
+          if (ingredient.dislikesTags.some((tag) => tag.tag === dislike.tag)) {
+            ingredient.dislikesTags.find((tag) => tag.tag === dislike.tag).weight += dislike.weight;
+          } else {
+            ingredient.dislikesTags.push(dislike);
+          }
+        });
+      }
+    });
+  }
+
   let rand = new numberMaker(seed);
 
   // Create a salad based on the random numbers
@@ -793,3 +822,4 @@ function getIngredientWithWeights(ingredients, rand) {
 }
 
 export default makeASalad;
+export { ingredients };
