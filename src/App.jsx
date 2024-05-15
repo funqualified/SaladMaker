@@ -12,11 +12,53 @@ import { CssVarsProvider, useColorScheme } from "@mui/joy/styles";
 import GlobalStyles from "@mui/joy/GlobalStyles";
 import CssBaseline from "@mui/joy/CssBaseline";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useCookies } from "react-cookie";
 
 function App() {
-  //TODO: rules should be stored in a database
-  const [saladRules, setSaladRules] = useState({ excludedIngredients: [], saladProfile: [] });
+  const [saladRules, setSaladRulesInternal] = useState({ excludedIngredients: [], saladProfile: [] });
+  const [cookie, setCookie] = useCookies(["token", "id", "rules"]);
+  const [username, setUsername] = useState("");
+  const APIurl = process.env.REACT_APP_API_URL;
+
+  const setSaladRules = (rules) => {
+    setSaladRulesInternal(rules);
+    setCookie("saladMaker_rules", rules);
+
+    if (cookie.token) {
+      fetch(`${APIurl}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(JSON.stringify(rules)),
+      });
+    }
+  };
+
+  useEffect(() => {
+    if (cookie.rules) {
+      setSaladRulesInternal(JSON.parse(cookie.saladMaker_rules));
+    }
+
+    const token = cookie.token;
+    const id = cookie.id;
+    if (token) {
+      fetch(`${APIurl}accounts?action=getAccountInfo&token=${token}&id=${id}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          setUsername(data.username);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    }
+  }, [cookie, APIurl, setUsername, saladRules]);
 
   return (
     <CssVarsProvider defaultMode="dark" disableTransitionOnChange>
@@ -42,7 +84,7 @@ function App() {
             <Maker saladRules={saladRules} />
           </TabPanel>
           <TabPanel value={1}>
-            <Profile saladRules={saladRules} setSaladRules={setSaladRules} username="TODO:login here" />
+            <Profile saladRules={saladRules} setSaladRules={setSaladRules} username={username} />
           </TabPanel>
         </Tabs>
       </Box>
