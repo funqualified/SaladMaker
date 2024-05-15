@@ -1,9 +1,8 @@
-name: 🚀 Deploy on push master
-
+name: 🚀 Deploy on push main
 on: 
   push:
     branches:    
-      - master 
+      - main 
 
 jobs:
   web-deploy:
@@ -22,9 +21,6 @@ jobs:
       uses: actions/setup-node@master
       with:
         node-version: ${{ matrix.node-version }}
-    
-    - name: Copy .env.prod.example to .env
-      run: cp .env.prod.example .env
 
     - name: 🔨 Build Project 
       run: |
@@ -37,7 +33,7 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.3
       with:
-        server: ${{ secrets.SERVER }}
+        server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: dist/
