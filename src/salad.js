@@ -39,7 +39,8 @@ function makeASalad(
     base: 1,
     topping: 3,
     dressing: 1,
-    excludedTags: [],
+    excludedIngredients: [],
+    saladProfile: [],
   }
 ) {
   let rules = { ...rulesInput };
@@ -47,8 +48,36 @@ function makeASalad(
   if (seed === "") {
     seed = Math.random().toString(36).substring(2);
   }
-  
-  var legalIngredients = ingredients.filter((ingredient) => ingredient.tags.every((tag) => !rules.excludedTags.includes(tag)));
+
+  // Filter out excluded ingredients
+  var legalIngredients = ingredients.filter((ingredient) => !rules.excludedIngredients.includes(ingredient.name));
+
+  // Modify ingredient weights based on the salad profile
+  if (rules.saladProfile.length > 0) {
+    legalIngredients.forEach((ingredient) => {
+      if (rules.saladProfile.some((profile) => profile.ingredient === ingredient.name)) {
+        let profile = rules.saladProfile.find((profile) => profile.ingredient === ingredient.name);
+        ingredient.weight += profile.weightAdjustment;
+
+        profile.likesTags.forEach((like) => {
+          if (ingredient.likesTags.some((tag) => tag.tag === like.tag)) {
+            ingredient.likesTags.find((tag) => tag.tag === like.tag).weight += like.weight;
+          } else {
+            ingredient.likesTags.push(like);
+          }
+        });
+
+        profile.dislikesTags.forEach((dislike) => {
+          if (ingredient.dislikesTags.some((tag) => tag.tag === dislike.tag)) {
+            ingredient.dislikesTags.find((tag) => tag.tag === dislike.tag).weight += dislike.weight;
+          } else {
+            ingredient.dislikesTags.push(dislike);
+          }
+        });
+      }
+    });
+  }
+
   let rand = new numberMaker(seed);
 
   // Create a salad based on the random numbers
@@ -129,3 +158,4 @@ function getIngredientWithWeights(ingredients, rand) {
 }
 
 export default makeASalad;
+export { ingredients };
