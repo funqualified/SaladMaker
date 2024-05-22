@@ -30,6 +30,7 @@ function App() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
         },
         body: JSON.stringify({ profile: rules }),
       });
@@ -48,6 +49,7 @@ function App() {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
         },
       })
         .then((response) => response.json())
