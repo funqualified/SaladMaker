@@ -19,19 +19,19 @@ function App() {
   const [saladRules, setSaladRulesInternal] = useState({ excludedIngredients: [], saladProfile: [] });
   const [cookie, setCookie] = useCookies(["token", "id", "rules"]);
   const [username, setUsername] = useState("");
-  const APIurl = import.meta.env.REACT_APP_API_URL;
+  const APIurl = import.meta.env.VITE_APP_API_URL;
 
   const setSaladRules = (rules) => {
     setSaladRulesInternal(rules);
     setCookie("saladMaker_rules", rules);
 
     if (cookie.token) {
-      fetch(`${APIurl}`, {
+      fetch(`${APIurl}salad?action=updateUserSaladProfile&token=${cookie.token}&id=${cookie.id}&profile=${rules}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(JSON.stringify(rules)),
+        body: JSON.stringify({ profile: rules }),
       });
     }
   };
