@@ -131,19 +131,16 @@ function Profile(props) {
   };
 
   const getSaladTags = () => {
-    var tags = ingredients.reduce(
-      (acc, ingredient) => {
-        ingredient.tags.forEach((tag) => {
-          if (!acc.tags.includes(tag)) {
-            acc.tags.push(tag);
-          }
-        });
-        return acc;
-      },
-      { tags: ["base", "topping", "dressing"] }
-    );
+    const tagCounts = ingredients.reduce((acc, ingredient) => {
+      ingredient.tags.forEach((tag) => {
+        acc[tag] = (acc[tag] || 0) + 1;
+      });
+      return acc;
+    }, {});
 
-    return tags.tags;
+    const tags = Object.keys(tagCounts).filter((tag) => tagCounts[tag] > 1);
+
+    return tags;
   };
 
   const handleCheckExcludeIngredient = (event) => {

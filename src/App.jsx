@@ -19,7 +19,7 @@ function App() {
   const [saladRules, setSaladRulesInternal] = useState({ excludedIngredients: [], saladProfile: [] });
   const [cookie, setCookie] = useCookies(["token", "id", "rules"]);
   const [username, setUsername] = useState("");
-  const APIurl = process.env.REACT_APP_API_URL;
+  const APIurl = import.meta.env.REACT_APP_API_URL;
 
   const setSaladRules = (rules) => {
     setSaladRulesInternal(rules);
