@@ -162,7 +162,7 @@ export default [
   {
     name: "mushroom",
     type: "topping",
-    tags: ["topping", "vegetable", "mushroom", "fungi", "cold"],
+    tags: ["topping", "vegetable", "mushroom", "cold"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -186,7 +186,7 @@ export default [
   {
     name: "sauteed mushroom",
     type: "topping",
-    tags: ["topping", "vegetable", "mushroom", "fungi", "hot"],
+    tags: ["topping", "vegetable", "mushroom", "hot"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
@@ -266,7 +266,7 @@ export default [
   {
     name: "grilled mushroom",
     type: "topping",
-    tags: ["topping", "vegetable", "mushroom", "fungi", "hot"],
+    tags: ["topping", "vegetable", "mushroom", "hot"],
     weight: 1,
     likesTags: [],
     dislikesTags: [],
