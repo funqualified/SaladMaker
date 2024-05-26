@@ -26,11 +26,10 @@ function App() {
     setCookie("saladMaker_rules", rules);
 
     if (cookie.token) {
-      fetch(`${APIurl}salad?action=updateUserSaladProfile&token=${cookie.token}&id=${cookie.id}&profile=${rules}`, {
+      fetch(`${APIurl}salad?action=updateUserSaladProfile&token=${cookie.token}&id=${cookie.id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
         },
         body: JSON.stringify({ profile: rules }),
       });
@@ -44,17 +43,31 @@ function App() {
 
     const token = cookie.token;
     const id = cookie.id;
-    if (token) {
+    if (token && username === "") {
       fetch(`${APIurl}accounts?action=getAccountInfo&token=${token}&id=${id}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
         },
       })
         .then((response) => response.json())
         .then((data) => {
           setUsername(data.username);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+
+      fetch(`${APIurl}salad?action=getUserSaladProfile&token=${token}&id=${id}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          //TODO: handle conflicting rules between cookie and server
+          setSaladRulesInternal(data);
         })
         .catch((error) => {
           console.error("Error:", error);
