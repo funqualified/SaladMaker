@@ -11,6 +11,7 @@ import Box from "@mui/joy/Box";
 import Checkbox from "@mui/joy/Checkbox";
 import Chip from "@mui/joy/Chip";
 import CheckIcon from "@mui/icons-material/Check";
+import Link from "@mui/joy/Link";
 
 import Divider from "@mui/joy/Divider";
 import DialogTitle from "@mui/joy/DialogTitle";
@@ -213,7 +214,13 @@ function Profile(props) {
               Yes? No? Do these ingredients belong together? Answering these questions will improve your salad profile. On a regular basis, all salad profiles
               will be analyzed to improve salad generation for everyone.{" "}
             </p>
-            <p>(By the way, salad profiles are stored locally, but logging in will allow you to use it from any device. And keep it safe from being cleared)</p>
+            {props.username == "" && (
+              <p>
+                (By the way, salad profiles are stored locally, but{" "}
+                <Link href="https://app.funqualified.com/dashboard/login?redirect=https://app.funqualified.com/salad">logging in</Link> will allow you to use it
+                from any device. And keep it safe from being cleared)
+              </p>
+            )}
             <p>
               <b>{comboIngredients?.length == 2 ? comboIngredients[0].name : "X"}</b> and{" "}
               <b>{comboIngredients?.length == 2 ? comboIngredients[1].name : "X"}</b>
