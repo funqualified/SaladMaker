@@ -46,28 +46,30 @@ function Profile(props) {
   };
 
   const handleComboAnswer = (answer) => {
+    var rules = props.saladRules;
     switch (answer) {
       case "Yes":
         let p1 = addLikesTags(comboIngredients[0], comboIngredients[1].tags, true);
         let p2 = addLikesTags(comboIngredients[1], comboIngredients[0].tags, true);
-        props.setSaladRules((rules) => ({
+        rules = {
           ...rules,
           saladProfile: [...rules.saladProfile.filter((profile) => profile.ingredient !== p1.ingredient && profile.ingredient !== p2.ingredient), p1, p2],
-        }));
+        };
         break;
       case "No":
         let dislike1 = addLikesTags(comboIngredients[0], comboIngredients[1].tags, false);
         let dislike2 = addLikesTags(comboIngredients[1], comboIngredients[0].tags, false);
-        props.setSaladRules((rules) => ({
+        rules = {
           ...rules,
           saladProfile: [
             ...rules.saladProfile.filter((profile) => profile.ingredient !== dislike1.ingredient && profile.ingredient !== dislike2.ingredient),
             dislike1,
             dislike2,
           ],
-        }));
+        };
         break;
     }
+    props.setSaladRules(rules);
 
     setComboIngredients(getTwoRandomIngredients());
   };
@@ -145,11 +147,13 @@ function Profile(props) {
   };
 
   const handleCheckExcludeIngredient = (event) => {
+    var rules = props.saladRules;
     if (event.target.checked) {
-      props.setSaladRules((rules) => ({ ...rules, excludedIngredients: [...rules.excludedIngredients, event.target.name] }));
+      rules = { ...rules, excludedIngredients: [...rules.excludedIngredients, event.target.name] };
     } else {
-      props.setSaladRules((rules) => ({ ...rules, excludedIngredients: rules.excludedIngredients.filter((rule) => rule !== event.target.name) }));
+      rules = { ...rules, excludedIngredients: rules.excludedIngredients.filter((rule) => rule !== event.target.name) };
     }
+    props.setSaladRules(rules);
   };
 
   return (

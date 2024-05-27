@@ -22,6 +22,7 @@ function App() {
   const APIurl = import.meta.env.VITE_APP_API_URL;
 
   const setSaladRules = (rules) => {
+    console.log("Setting rules", rules);
     setSaladRulesInternal(rules);
     setCookie("saladMaker_rules", rules);
 
