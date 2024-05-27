@@ -55,6 +55,12 @@ function Profile(props) {
           ...rules,
           saladProfile: [...rules.saladProfile.filter((profile) => profile.ingredient !== p1.ingredient && profile.ingredient !== p2.ingredient), p1, p2],
         };
+
+        props.sendRule({
+          type: "likes",
+          data: { ingredient1: comboIngredients[0].name, ingredient2: comboIngredients[1].name },
+        });
+
         break;
       case "No":
         let dislike1 = addLikesTags(comboIngredients[0], comboIngredients[1].tags, false);
@@ -67,6 +73,12 @@ function Profile(props) {
             dislike2,
           ],
         };
+
+        props.sendRule({
+          type: "dislikes",
+          data: { ingredient1: comboIngredients[0].name, ingredient2: comboIngredients[1].name },
+        });
+
         break;
     }
     props.setSaladRules(rules);
@@ -150,6 +162,11 @@ function Profile(props) {
     var rules = props.saladRules;
     if (event.target.checked) {
       rules = { ...rules, excludedIngredients: [...rules.excludedIngredients, event.target.name] };
+
+      props.sendRule({
+        type: "exclude",
+        data: { ingredient: event.target.name },
+      });
     } else {
       rules = { ...rules, excludedIngredients: rules.excludedIngredients.filter((rule) => rule !== event.target.name) };
     }

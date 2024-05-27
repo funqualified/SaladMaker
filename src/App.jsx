@@ -22,7 +22,6 @@ function App() {
   const APIurl = import.meta.env.VITE_APP_API_URL;
 
   const setSaladRules = (rules) => {
-    console.log("Setting rules", rules);
     setSaladRulesInternal(rules);
     setCookie("saladMaker_rules", rules);
 
@@ -35,6 +34,16 @@ function App() {
         body: JSON.stringify({ profile: rules }),
       });
     }
+  };
+
+  const sendAnonymousRule = (rule) => {
+    fetch(`${APIurl}salad?action=anonymousSaladRule`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ rule: rule }),
+    });
   };
 
   useEffect(() => {
@@ -100,7 +109,7 @@ function App() {
             <Maker saladRules={saladRules} />
           </TabPanel>
           <TabPanel value={1}>
-            <Profile saladRules={saladRules} setSaladRules={setSaladRules} username={username} />
+            <Profile saladRules={saladRules} setSaladRules={setSaladRules} sendRule={sendAnonymousRule} username={username} />
           </TabPanel>
         </Tabs>
       </Box>
