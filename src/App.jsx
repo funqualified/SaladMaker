@@ -47,8 +47,14 @@ function App() {
   };
 
   useEffect(() => {
-    if (cookie.rules) {
-      setSaladRulesInternal(JSON.parse(cookie.saladMaker_rules));
+    var rules = {
+      excludedIngredients: [],
+      saladProfile: [],
+      favoriteIngredients: [],
+      favoriteSalads: [],
+    };
+    if (cookie.saladMaker_rules) {
+      rules = { ...rules, ...cookie.saladMaker_rules };
     }
 
     const token = cookie.token;
@@ -76,13 +82,15 @@ function App() {
       })
         .then((response) => response.json())
         .then((data) => {
-          //TODO: handle conflicting rules between cookie and server
-          setSaladRulesInternal(data);
+          rules = { ...rules, ...data };
         })
         .catch((error) => {
           console.error("Error:", error);
         });
     }
+
+    console.log("rules", rules); //TODO: remove
+    setSaladRulesInternal(rules);
   }, [cookie, APIurl, setUsername, saladRules]);
 
   return (
