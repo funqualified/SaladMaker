@@ -19,6 +19,7 @@ function App() {
   const [saladRules, setSaladRulesInternal] = useState({ excludedIngredients: [], saladProfile: [] });
   const [cookie, setCookie] = useCookies(["token", "id", "rules"]);
   const [username, setUsername] = useState("");
+  const [initialized, setInitialized] = useState(false);
   const APIurl = import.meta.env.VITE_APP_API_URL;
 
   const setSaladRules = (rules) => {
@@ -47,6 +48,11 @@ function App() {
   };
 
   useEffect(() => {
+    if (initialized) {
+      return;
+    }
+    setInitialized(true);
+
     var rules = {
       excludedIngredients: [],
       saladProfile: [],
@@ -88,10 +94,8 @@ function App() {
           console.error("Error:", error);
         });
     }
-
-    console.log("rules", rules); //TODO: remove
     setSaladRulesInternal(rules);
-  }, [cookie, APIurl, setUsername, saladRules]);
+  }, [initialized]);
 
   return (
     <CssVarsProvider defaultMode="dark" disableTransitionOnChange>
