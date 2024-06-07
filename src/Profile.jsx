@@ -25,10 +25,12 @@ import WarningRoundedIcon from "@mui/icons-material/WarningRounded";
 import { useState, useEffect } from "react";
 
 function Profile(props) {
-  const [selected, setSelected] = useState([]);
+  const [selectedExclude, setSelectedExclude] = useState([]);
+  const [selectedFave, setSelectedFave] = useState([]);
   const [name, setName] = useState("");
   const [tags, setTags] = useState([]);
   const [resetOpen, setResetOpen] = useState(false);
+  const [saladDeletionIndex, setSaladDeletionIndex] = useState(-1);
 
   const ResetProfile = () => {
     props.setSaladRules({ excludedIngredients: [], saladProfile: [] });
@@ -173,25 +175,42 @@ function Profile(props) {
     props.setSaladRules(rules);
   };
 
+  const handleCheckFavoriteIngredient = (event) => {
+    var rules = props.saladRules;
+    if (event.target.checked) {
+      rules = { ...rules, favoriteIngredients: [...rules.favoriteIngredients, event.target.name] };
+
+      props.sendRule({
+        type: "favorite",
+        data: { ingredient: event.target.name },
+      });
+    } else {
+      rules = { ...rules, favoriteIngredients: rules.favoriteIngredients.filter((rule) => rule !== event.target.name) };
+    }
+    props.setSaladRules(rules);
+  };
+
   return (
     <>
       <h1>Hello {name}, personalize your salad preferences here!</h1>
       <div className="card">
         <Tabs defaultValue={0}>
           <TabList>
-            <Tab>Universal Filters</Tab>
+            <Tab>Excluded Ingredients</Tab>
+            <Tab>Favorite Ingredients</Tab>
             <Tab>Combo Questions</Tab>
+            <Tab>Saved Salads</Tab>
             <Tab>Review the Rules</Tab>
           </TabList>
           <TabPanel value={0}>
-            <h3>Universal Filters</h3>
+            <h3>Excluded Ingredients</h3>
             <p>
-              This page allows you to filter out specific ingredients from all your salads. Use the check boxes below to label an ingredient for filtering. Use
-              the tags to display specific categories of ingredients.
+              This page allows you to exclude specific ingredients from all your salads. Use the check boxes below to exclude an ingredient. Use the tags to
+              filter the display of ingredients.
             </p>
             <Box role="group" aria-label="filters" sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
               {tags.map((tag, index) => {
-                const checked = selected.includes(tag);
+                const checked = selectedExclude.includes(tag);
                 return (
                   <Chip
                     key={tag}
@@ -206,7 +225,7 @@ function Profile(props) {
                       label={tag}
                       checked={checked}
                       onChange={(event) => {
-                        setSelected((tags) => (!event.target.checked ? tags.filter((n) => n !== tag) : [...tags, tag]));
+                        setSelectedExclude((tags) => (!event.target.checked ? tags.filter((n) => n !== tag) : [...tags, tag]));
                       }}
                     />
                   </Chip>
@@ -215,7 +234,7 @@ function Profile(props) {
             </Box>
             <ul style={{ textAlign: "left" }}>
               {ingredients
-                .filter((ingredient) => selected.length === 0 || ingredient.tags.some((tag) => selected.includes(tag)))
+                .filter((ingredient) => selectedExclude.length === 0 || ingredient.tags.some((tag) => selectedExclude.includes(tag)))
                 .map((ingredient, index) => (
                   <li key={index}>
                     <Checkbox
@@ -230,6 +249,52 @@ function Profile(props) {
             </ul>
           </TabPanel>
           <TabPanel value={1}>
+            <h3>Favorite Ingredients</h3>
+            <p>
+              This page allows you to favorite specific ingredients, making them more likely to appear in your salads. Use the check boxes below to favorite an
+              ingredient. Use the tags to filter the display of ingredients.
+            </p>
+            <Box role="group" aria-label="filters" sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
+              {tags.map((tag, index) => {
+                const checked = selectedFave.includes(tag);
+                return (
+                  <Chip
+                    key={tag}
+                    variant="plain"
+                    color={checked ? "primary" : "neutral"}
+                    startDecorator={checked && <CheckIcon sx={{ zIndex: 1, pointerEvents: "none" }} />}>
+                    <Checkbox
+                      variant="outlined"
+                      color={checked ? "primary" : "neutral"}
+                      disableIcon
+                      overlay
+                      label={tag}
+                      checked={checked}
+                      onChange={(event) => {
+                        setSelectedFave((tags) => (!event.target.checked ? tags.filter((n) => n !== tag) : [...tags, tag]));
+                      }}
+                    />
+                  </Chip>
+                );
+              })}
+            </Box>
+            <ul style={{ textAlign: "left" }}>
+              {ingredients
+                .filter((ingredient) => selectedFave.length === 0 || ingredient.tags.some((tag) => selectedFave.includes(tag)))
+                .map((ingredient, index) => (
+                  <li key={index}>
+                    <Checkbox
+                      id={ingredient.name}
+                      name={ingredient.name}
+                      label={ingredient.name}
+                      checked={props.saladRules.favoriteIngredients.includes(ingredient.name)}
+                      onChange={handleCheckFavoriteIngredient}
+                    />
+                  </li>
+                ))}
+            </ul>
+          </TabPanel>
+          <TabPanel value={2}>
             <h3>Combo Questions</h3>
             <p>
               Yes? No? Do these ingredients belong together? Answering these questions will improve your salad profile. On a regular basis, all salad profiles
@@ -256,7 +321,70 @@ function Profile(props) {
               Skip
             </Button>
           </TabPanel>
-          <TabPanel value={2}>
+          <TabPanel value={3}>
+            <h3>Saved Salads</h3>
+            <p>Here are all your saved salads</p>
+            {props.saladRules.favoriteSalads && props.saladRules.favoriteSalads.length > 0 ? (
+              <ul style={{ textAlign: "left" }}>
+                {props.saladRules.favoriteSalads.map((salad, index) => (
+                  <li key={index}>
+                    <ul>
+                      {salad.map((ingredient, index) => (
+                        <li
+                          style={{
+                            color:
+                              ingredient.type == "base" ? "green" : ingredient.type == "topping" ? "red" : ingredient.type == "dressing" ? "orange" : "white",
+                          }}
+                          key={index}>
+                          {ingredient.name}
+                        </li>
+                      ))}
+                    </ul>
+                    <Button
+                      color="danger"
+                      onClick={() => {
+                        setSaladDeletionIndex(index);
+                        setResetOpen(true);
+                      }}>
+                      <DeleteForever />
+                    </Button>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p>No saved salads</p>
+            )}
+            <Modal open={resetOpen} onClose={() => setResetOpen(false)}>
+              <ModalDialog variant="outlined" role="alertdialog">
+                <DialogTitle>
+                  <WarningRoundedIcon />
+                  Confirmation
+                </DialogTitle>
+                <Divider />
+                <DialogContent>Are you sure you want to delete this salad? You cannot get it back.</DialogContent>
+                <DialogActions>
+                  <Button
+                    variant="solid"
+                    color="danger"
+                    onClick={() => {
+                      var saladList = props.saladRules.favoriteSalads;
+                      saladList.splice(saladDeletionIndex, 1);
+
+                      var rules = props.saladRules;
+                      rules = { ...rules, favoriteSalads: saladList };
+                      props.setSaladRules(rules);
+                      setResetOpen(false);
+                    }}>
+                    Delete Salad
+                  </Button>
+                  <Button variant="plain" color="neutral" onClick={() => setResetOpen(false)}>
+                    Cancel
+                  </Button>
+                </DialogActions>
+              </ModalDialog>
+            </Modal>
+          </TabPanel>
+          <TabPanel value={4}>
             <h3>Review the Rules</h3>
             <p>Here are all the rules currently applied to your salads</p>
             <ul style={{ textAlign: "left" }}>

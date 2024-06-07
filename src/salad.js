@@ -28,7 +28,6 @@ class numberMaker {
   next() {
     let number = this.randomNumbers[this.index];
     this.index++;
-    console.log(number);
     return number;
   }
 }
@@ -40,6 +39,7 @@ function makeASalad(
     topping: 3,
     dressing: 1,
     excludedIngredients: [],
+    favoriteIngredients: [],
     saladProfile: [],
   }
 ) {
@@ -49,8 +49,18 @@ function makeASalad(
     seed = Math.random().toString(36).substring(2);
   }
 
-  // Filter out excluded ingredients
-  var legalIngredients = ingredients.filter((ingredient) => !rules.excludedIngredients.includes(ingredient.name));
+  // Deep copy ingredients and filter out excluded ingredients
+  let legalIngredients = JSON.parse(JSON.stringify(ingredients));
+  legalIngredients = legalIngredients.filter((ingredient) => !rules.excludedIngredients.includes(ingredient.name));
+
+  // Modify ingredient weights based on favorite ingredients
+  if (rules.favoriteIngredients.length > 0) {
+    legalIngredients.forEach((ingredient) => {
+      if (rules.favoriteIngredients.includes(ingredient.name)) {
+        ingredient.weight *= 2;
+      }
+    });
+  }
 
   // Modify ingredient weights based on the salad profile
   if (rules.saladProfile.length > 0) {

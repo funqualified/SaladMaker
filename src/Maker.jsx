@@ -7,6 +7,22 @@ import { Input } from "@mui/joy";
 function Maker(props) {
   const [salad, setSalad] = useState([]);
   const [rules, setRules] = useState({ base: 1, topping: 3, dressing: 1 });
+  const [saladSaved, setSaladSaved] = useState(false);
+
+  const saveCurrentSalad = (salad) => {
+    const saladBasic = salad.map((ingredient) => {
+      return { name: ingredient.name, type: ingredient.type };
+    });
+    props.sendSalad({
+      type: "salad",
+      data: saladBasic,
+    });
+
+    var rules = props.saladRules;
+    rules.favoriteSalads.push(saladBasic);
+    props.setSaladRules(rules);
+    setSaladSaved(true);
+  };
 
   return (
     <>
@@ -70,6 +86,11 @@ function Maker(props) {
               </li>
             ))}
           </ul>
+          {salad.length > 0 && (
+            <Button disabled={saladSaved} onClick={() => saveCurrentSalad(salad)}>
+              Save Salad
+            </Button>
+          )}
         </div>
       </div>
     </>

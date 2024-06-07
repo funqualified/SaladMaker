@@ -128,7 +128,7 @@ function App() {
             <Typography level="h1">Welcome to the Salad Maker</Typography>
             <Typography>
               Salad Maker is a project by Ryan Lindemulder for Funqualified. It began with TikToks of him making unusual salads. Now this web app is here for
-              him and others to get crazy salad recipes
+              him and others to get crazy salad recipes.
             </Typography>
             <Typography>Click the tabs to make a salad or personalize your salad profile.</Typography>
             <Typography>
@@ -145,7 +145,7 @@ function App() {
             <Tab>Personalize</Tab>
           </TabList>
           <TabPanel value={0}>
-            <Maker saladRules={saladRules} />
+            <Maker saladRules={saladRules} setSaladRules={setSaladRules} sendSalad={sendAnonymousRule} username={username} />
           </TabPanel>
           <TabPanel value={1}>
             <Profile saladRules={saladRules} setSaladRules={setSaladRules} sendRule={sendAnonymousRule} username={username} />
