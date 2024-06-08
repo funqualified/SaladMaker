@@ -73,7 +73,13 @@ function Maker(props) {
         </div>
         <br />
         <div className="card-body">
-          <Button onClick={() => setSalad(makeASalad("", { ...rules, ...props.saladRules }))}>Make a Salad!</Button>
+          <Button
+            onClick={() => {
+              setSalad(makeASalad("", { ...rules, ...props.saladRules }));
+              setSaladSaved(false);
+            }}>
+            Make a Salad!
+          </Button>
           {salad.length > 0 && <p>Your salad ingredients are:</p>}
           <ul>
             {salad.map((ingredient, index) => (
