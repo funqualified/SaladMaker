@@ -133,8 +133,7 @@ function App() {
             <Typography>Click the tabs to make a salad or personalize your salad profile.</Typography>
             <Typography>
               <Link href="https://app.funqualified.com/dashboard/login?redirect=https://app.funqualified.com/salad">Signing in</Link> to an account will let you
-              use your salad profile from any device.
-              {/*TODO: add this text: You can also save your favorite salads.  */}
+              use your salad profile and see your saved salads from any device.
             </Typography>
           </ModalDialog>
         </Modal>
