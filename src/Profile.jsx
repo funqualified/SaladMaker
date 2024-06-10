@@ -37,6 +37,21 @@ function Profile(props) {
     setResetOpen(false);
   };
 
+  //Viewport size responsiveness
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  const handleWindowResize = () => {
+    setWindowWidth(window.innerWidth);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, []);
+
   //Combo variables
   const [comboIngredients, setComboIngredients] = useState([]);
   const getTwoRandomIngredients = () => {
@@ -196,11 +211,11 @@ function Profile(props) {
       <div className="card">
         <Tabs defaultValue={0}>
           <TabList>
-            <Tab>Excluded Ingredients</Tab>
-            <Tab>Favorite Ingredients</Tab>
-            <Tab>Combo Questions</Tab>
-            <Tab>Saved Salads</Tab>
-            <Tab>Review the Rules</Tab>
+            <Tab>{windowWidth > 550 ? "Excluded Ingredients" : "❌"}</Tab>
+            <Tab>{windowWidth > 550 ? "Favorite Ingredients" : "💚"}</Tab>
+            <Tab>{windowWidth > 550 ? "Combo Questions" : "📝"}</Tab>
+            <Tab>{windowWidth > 550 ? "Saved Salads" : "🥗"}</Tab>
+            <Tab>{windowWidth > 550 ? "Review the Rules" : "📋"}</Tab>
           </TabList>
           <TabPanel value={0}>
             <h3>Excluded Ingredients</h3>

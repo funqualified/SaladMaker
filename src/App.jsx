@@ -99,6 +99,8 @@ function App() {
         .then((response) => response.json())
         .then((data) => {
           rules = { ...rules, ...data };
+          setSaladRulesInternal(rules);
+          setCookie("saladMaker_rules", rules);
         })
         .catch((error) => {
           console.error("Error:", error);
